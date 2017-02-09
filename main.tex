@@ -1,0 +1,126 @@
+\documentclass[14pt,a4paper,oneside,fleqn]{tmarticle}
+\usepackage[]{lipsum}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.85]{beramono}
+\usepackage[T1]{fontenc}
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage[toc,section=section]{glossaries}
+\makeglossaries{}
+\newglossaryentry{placeholder} {
+  name=placeholder,
+  description={placeholder}
+}
+\usepackage{bibentry}
+\nobibliography{bibliography.bib}
+\addbibresource{bibliography.bib}
+\bibstyle{plain}
+\usepackage[]{paralist}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{titlesec}
+\usepackage[]{rotating}
+\usepackage[]{fancyhdr}
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage[]{xcolor,colortbl}
+\graphicspath{{img/}{../img/}}
+\usepackage{pdfpages}
+\usepackage[]{svg}
+\usepackage[]{amsmath}
+\usepackage[]{amssymb}
+\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\begin{document}
+\pagestyle{fancy}
+\begin{titlepage}
+	\centering
+        \includegraphics[scale=0.75]{puiglogo.png}\par\vspace{1,5cm}
+            {\huge\bfseries Análisis de datos con Apache Cassandra y Python\par}
+	\vspace{0.5cm}
+	    {\scshape\Large Memoria\par}
+	\vspace{0.5cm}
+	    {\scshape\Large CFGS Desarrollo de Aplicaciones Multiplataforma\par}
+	\vspace{6.0cm}
+  \hfill{\Large\textbf{Enrique Villarreal}}\par
+  \vspace{0.1cm}
+  \hfill{\Large\textbf{Adrián Asensio}}\par  
+        \vspace{1.5cm}
+            \hfill{\large Curso \textbf{2016-2017}\par}
+            \hfill{\large\today\par}
+         \vspace{2cm}
+         \begin{flushright}
+
+        \includegraphics[scale=0.75]{creativecommons.png}\par\vspace{0.05cm}
+
+           Esta obra está sujeta a una licencia de Reconocimiento-NoComercial-SinObraDerivada 3.0 España de Creative Commons
+         \end{flushright}
+        \vfill
+\end{titlepage}
+\thispagestyle{empty}
+\textbf{Resumen}
+\vspace{0.5cm}
+
+Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+
+\vspace{0.5cm}
+\textbf{Palabras clave: } virtualización, servidores, linux 
+
+\clearpage
+\textbf{Abstract}
+\vspace{0.5cm}
+
+Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+
+\vspace{0.5cm}
+\textbf{Keywords: } virtualization, servers, linux
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+\thispagestyle{empty}
+\listoffigures
+\clearpage
+\setcounter{page}{1}
+
+\input{chapters/intro}
+% \include{chapters/state_of_art}
+% \include{chapters/install}
+% \include{chapters/final}
+
+% \input{chapters/annex}
+
+\nocite{*}
+\clearpage
+\glsaddall
+\printglossary[nonumberlist]
+\printbibliography[heading=bibintoc]
+
+\end{document}
