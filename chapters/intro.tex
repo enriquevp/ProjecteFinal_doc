@@ -4,13 +4,21 @@
 \subsection{Contexto y justificación}
 \label{subsec:context}
 
-La virtualización no es nada nuevo. Tiene sus orígenes en la respuesta de IBM al pryecto MAC (originalmente \emph{Mathematics and Computation}, renombrado más tarde a \emph{Multiple Access Computer}), que pretendía soportar más de un usuario de forma simultánea. Aunque los sistemas de hoy en día soportan cargas de trabajo multiusuario sin ningún problema, en aquellos tiempos cada usuario realizaba su computación en lotes secuenciales.
+Las bases de datos relacionales llevan con nostros desde hace más de 40 años.
+Como bien dice su nombre, están basadas en el modelo relacional, descrito por
+Edgar F. Codd en 1970.
 
-Para hacer realidad ése proyecto, el MIT necesitaba un hardware más potente del cual disponían, y se acercó a diferentes fabricantes. El proceso culminó con la elección  de GE como proveedor, ya que IBM no veía futuro en \emph{mainframes} concurrentes. Ésta oportunidad perdida sirvió para que IBM reaccionara, que a raíz de ello inició a desarrollar el CP-40, que acabaría llevando al CP-67, el primer mainframe que soportaba virtualización.
+Dos de las características deseables de una base de datos relacional bien
+diseñada, son la \emph{normalización} y las \emph{transacciones}. A través de
+ellas, la consistencia de los datos mejora, es decir, nos aseguramos de que la
+base de datos se mantiene en un estado coherente. 
 
-De todas formas, la virtualización aplicada a servicio pasó a un segundo plano a causa de la evolución meteórica de la informática durante los años 80 y 90, aademás del relativo bajo precio de servidores basados en la arquitectura x86. Con el paso del tiempo, fueron surgiendo diferentes soluciones de virtualización de escritorio, pero el modelo de computación distribuida se estableció como el estándar de la industria.
+% Es difícil implementar una base de datos relacional distribuida?
+% TODO: Describir el aumento de datos a procesar, y brevemente, NoSQL.
+% No hace falta enrollarse, aquí simplemente estamos explicando la situación general.
 
-Actualmente, los servidores de La Bastida están todos implementados en un único servidor físico. Aunque esto funciona bien, constituye un \emph{SPOF} que en caso de fallar, dejaría al centro sin servicio. Éste proyecto, entonces, tiene por objetivo explorar el uso de la virtualización para mantener a flote los servicios en caso de que el servidor que los provee falle.
+% TODO: Describir ``data science'''
+
 
 \subsection{Objetivos}
 \label{subsec:objectives}
@@ -18,7 +26,7 @@ Actualmente, los servidores de La Bastida están todos implementados en un únic
 Los objetivos principales del proyecto son:
 
 \begin{itemize}
-    \item Estudiar y conocer el Apache Cassandra.
+    \item Estudiar y conocer el SGBD NoSQL Apache Cassandra.
       \begin{itemize}
       \item Identificar los usos ideales para Apache Cassandra.
       \end{itemize}
@@ -60,17 +68,13 @@ concreto del futuro.
 \subsubsection{Planificación horaria}
 \label{subsubsec:hores}
 
-Debido a que el hardware necesario para la realización del proyecto se encuentra en el IES La Bastida (Nota: aunque en el anexo hay documentada una manera de acceder a la consola de administración a través de un proxy SOCKS, una retahíla de errores y descalabros a nivel físico han hecho muy difícil el trabajo de manera remota.) únicamente dispondré de tres horas durante los días lectivos para la realización del proyecto. El resto de horas del MP14 se dedicarán a investigar documentación, redactado de la memoria, y tareas relacionadas con la memoria y la presentación del proyecto.
-
-A eso de Mayo de 2016, entré a trabajar para Coopux Systems, lo que me impide continuar cualquier tipo de trabajo en el proyecto. Por suerte, oVirt ya había sido probado y documentado, así que el impacto en el proyecto es relativamente pequeño, limitándose a la imposibilidad de documentar otras herramientas, y profundizar en la migración de máquinas virtuales.
-
 \subsection{Descripción de los capítulos}
 \label{subsec:chaps}
 
+% TODO: Definir la estructura de capítulos y explicarlos brevemente.
+
 \begin{enumerate}
-    \item \textbf{Estado del arte: } En éste capítulo se analizará la historia y el estado actual de la virtualización, se estudiará la arquitectura actual de La Bastida, y mi propuesta para el cambio.
-    \item \textbf{Implementación de oVirt: } En éste capítulo, se documentará el proceso de instalación de oVirt.
-    \item \textbf{Trabajando con VMs en oVirt: } En éste capítulo se documentará brevemente algunas de las tareas esenciales a la hora de trabajar con máquinas virtuales
-    \item \textbf{Conclusiones: } En éste capítulo se resumirán mis conclusiones y opiniones personales acerca del proyecto.
+    \item \textbf{Estado del arte: } 
+    \item \textbf{Conclusiones: } 
 \end{enumerate}
 \clearpage
