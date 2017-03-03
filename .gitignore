@@ -182,4 +182,6 @@ TSWLatexianTemp*
 
 # Emacs
 auto/
+chapters/auto/*.el
+main.el
   
