@@ -26,6 +26,7 @@
 \usepackage{pdfpages}
 \usepackage[]{svg}
 \usepackage[]{amsmath}
+\usepackage{pgfgantt}
 \usepackage[]{amssymb}
 \DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
 \titleclass{\subsubsubsection}{straight}[\subsection]
@@ -108,9 +109,9 @@ Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis 
 \thispagestyle{empty}
 \listoffigures
 \clearpage
-\setcounter{page}{1}
+\pagenumbering{arabic}
 
-\input{chapters/intro}
+\include{chapters/intro}
 % \include{chapters/state_of_art}
 % \include{chapters/install}
 % \include{chapters/final}
