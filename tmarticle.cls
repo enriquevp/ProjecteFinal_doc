@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{TMarticle}
-\LoadClass{report} % because fuck you use a standard article as a base-class
+\LoadClass{article}
 
 \RequirePackage{listings} % for our code listings
 \RequirePackage[usenames, dvipsnames, svgnames, table]{xcolor}
