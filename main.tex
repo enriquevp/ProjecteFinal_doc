@@ -4,7 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[scaled=0.85]{beramono}
 \usepackage[T1]{fontenc}
-\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=authoryear,sorting=none]{biblatex}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
 \usepackage[toc,section=section]{glossaries}
 \makeglossaries{}
 \newglossaryentry{placeholder} {
@@ -12,9 +14,8 @@
   description={placeholder}
 }
 \usepackage{bibentry}
-\nobibliography{bibliography.bib}
 \addbibresource{bibliography.bib}
-\bibstyle{plain}
+\usepackage{helvet}
 \usepackage[]{paralist}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{titlesec}
@@ -34,6 +35,11 @@
 \newcounter{subsubsubsection}[subsubsection]
 \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
 \renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+% Formato de las listas enumeradas
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
 
 \titleformat{\subsubsubsection}
   {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
@@ -112,7 +118,7 @@ Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis 
 \pagenumbering{arabic}
 
 \include{chapters/intro}
-% \include{chapters/state_of_art}
+\include{chapters/cass_install}
 % \include{chapters/install}
 % \include{chapters/final}
 
