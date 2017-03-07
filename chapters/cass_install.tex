@@ -1,0 +1,67 @@
+\section{Apache Cassandra}
+\label{sec:ovirt_install}
+
+\subsection{Requerimientos mínimos}
+\label{subsec:minreqs}
+
+Apache Cassandra necesita para funcionar:
+
+\begin{itemize}
+  \item Java 8 o superior
+  \item Para usar cqlsh, Python 2.7 o superior
+  \item En términos de hardware \footnote{\url{https://wiki.apache.org/cassandra/CassandraHardware}}, se recomienda:
+    \begin{itemize}
+      \item 4 GB de RAM mínimo en entornos virtualizados (EC2 Large) 
+      \item Cpu de 8 núcleos en servidores físicos, para entornos virtualizados
+        se recomienda cualquiera que soporte \emph{CPU bursting}.
+      \item DISCO
+    \end{itemize}
+\end{itemize}
+
+
+
+\subsection{Instalación}
+\label{subsec:instalación}
+
+\begin{enumerate}
+  \item Primeramente, se deben añadir el repositorio y la clave:
+    \begin{TMterminal}{}{}{Añadiendo el repositorio}
+      echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+    \end{TMterminal}
+
+    \begin{TMterminal}{}{}{Añadiendo la clave}
+      curl -L http://debian.datastax.com/debian/repo_key | sudo apt-key add
+    \end{TMterminal}
+
+  \item Una vez añadidos, ya podemos proceder con la instalación:
+    \begin{TMterminal}{}{}{Instalando Apache Cassandra }
+      sudo apt-get update && sudo apt-get install cassandra 
+    \end{TMterminal}
+
+  \item Cuando ya esté instalado, sería buena idea arrancarlo y habilitarlo en
+    cada reinicio del sistema:
+    \begin{TMterminal}{}{}{Habilitando servicio}
+      systemctl start cassandra
+      systemctl enable cassandra
+    \end{TMterminal}
+
+  \item Para comprobar el estado del servidor, podemos utilizar el comando
+    \texttt{nodetool}:
+    \begin{TMterminal}{}{}{Comprobando el estado de Cassandra}
+      nodetool status
+
+      Datacenter: datacenter1
+      =======================
+      Status=Up/Down
+      |/ State=Normal/Leaving/Joining/Moving
+      -- Address Load Tokens Owns (effective) Host ID Rack
+      UN 127.0.0.1 222.14 KB 256 100.0% 2a0b7fa9-23c6-40d3-83a4-e6c06e2f5736 rack1
+      [root@cassandra ~]#
+
+    \end{TMterminal}
+    
+
+\end{enumerate}
+
+
+
