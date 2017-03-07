@@ -40,7 +40,7 @@
 % takes care of the background and the left bar
 
 \mdfdefinestyle{TMstyleCode}{
-            skipabove=4mm,
+            skipabove=0mm,
             skipbelow=0mm,
             %remove borders
             rightline=false,
@@ -48,8 +48,8 @@
             bottomline=false,
             linewidth=1mm,
             %margins
-            innertopmargin=2mm,
-            innerleftmargin=0mm,
+            innertopmargin=0mm,
+            %innerleftmargin=-2mm,
             innerbottommargin=0mm,
             innerrightmargin=10pt,
             linecolor=TMcodeFrame,
@@ -100,24 +100,20 @@
 % need to use inner commands to avoid the verbatim nature
 % of listing environments!
 
-\lstnewenvironment{TMcode}[3]
+\lstnewenvironment{TMcode}[2]
 {
-    \lstset{style=TMstyle, language=#1, caption=#2}
+  \lstset{style=TMstyle,
+    language=#1,
+    caption=#2,
+    xleftmargin = -0.5mm,
+    numbers=left}
     \mdfsetup{style=TMstyleCode}
     \mdframed
-    \hspace*{3mm}
-    \minipage{0.75cm}
-    \includegraphics[width=\linewidth]{images/code2.png}
-    \endminipage
-    \hspace*{1mm}
-    \minipage{\textwidth-1.05cm}
-        {\sffamily\Large #3}
-    \endminipage
-    \vspace*{-2mm}
 }
 {
     \endmdframed
 }
+
 \lstnewenvironment{TMterminal}[3]
 {
     \lstset{style=TMstyle}
@@ -129,7 +125,7 @@
     \endminipage
     \hspace*{1mm}
     \minipage{\textwidth-1.05cm}
-        {\sffamily\Large #3}
+    {\Large\sffamily #3}
     \endminipage
     \vspace*{-2mm}
 }
@@ -152,7 +148,7 @@
         topline=false,
         bottomline=false,
         linewidth=1mm,
-        frametitlefont={\sffamily\bfseries},
+        frametitlefont={\bfseries},
         backgroundcolor=TMbulletinBackground]{TMbulletinBase}
 \newmdenv[default, linewidth=0pt, backgroundcolor=TMbulletinBackground]{TMbulletinContent}
 
@@ -211,7 +207,7 @@
     \begin{table}[#2]
     \begin{mdframed}[style=TMstyleTable]
     \begin{tabu} to \textwidth{#1}
-        \rowfont{\bfseries\sffamily\leavevmode\color{white}}
+        \rowfont{\bfseries\leavevmode\color{white}}
         \rowcolor{TMtableHead!}
 }
 {
@@ -224,7 +220,7 @@
 % theorem styles
 \declaretheoremstyle[
     postheadspace=\newline,
-    headfont=\sffamily\bfseries\large,
+    headfont=\bfseries\large,
     mdframed={
             skipabove=4mm,
             skipbelow=0mm,
