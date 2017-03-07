@@ -5,23 +5,26 @@
 \label{subsec:context}
 
 Las bases de datos relacionales llevan con nostros desde hace más de 40 años.
-Como bien dice su nombre, están basadas en el modelo relacional, descrito por
-Edgar F. Codd en 1970.
+Están basadas en el modelo relacional (\cite{Codd:1970:RMD:362384.362685}), en el que los datos se representan en tuplas, agrupadas en
+relaciones, que por lo general, representan entidades. Por tanto, almacenan
+\textbf{datos estructurados}, y resultan ideales en situaciones en las cuales el
+modelo de los datos está rígidamente definido.
 
-Dos de las características deseables de una base de datos relacional bien
-diseñada, son la \emph{normalización} y las \emph{transacciones}. A través de
-ellas, la consistencia de los datos mejora, es decir, nos aseguramos de que la
-base de datos se mantiene en un estado coherente. 
-
-% Es difícil implementar una base de datos relacional distribuida?
-% TODO: Describir el aumento de datos a procesar, y brevemente, NoSQL.
-% No hace falta enrollarse, aquí simplemente estamos explicando la situación general.
-
-% TODO: Describir ``data science'''
+De todas maneras, la mayor parte de la información que se genera a
+diario en Internet (pista: mucha), no se conforma a niguna estructura, y
+por tanto, no puede ser almacenada tal cual en sistemas con esquemas definidos.
+En respuesta a ello, y al rápido aumento en la cantidad de datos a procesar,
+surgieron las \textbf{bases de datos NoSQL}. Al no usar el tradicional modelo
+relacional, éstas resultan mucho más adecuadas para manejar datos sin ningún
+tipo de organización / estructura. 
 
 Otro de los conceptos al que va enfocado el proyecto es el de ciencia de los
-datos, posiblemente el último ``no va más'' en el mercado. Harvard Business
-Review lo ha llamado el trabajo más sexy del siglo 21 \footnote{\url{https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century}}
+datos, posiblemente el último ``no va más'' en el mercado. Hasta ha sido
+clasificado por Glassdoor como el mejor trabajo en América a inicios de 2016
+\footnote{\url{https://www.glassdoor.com/blog/25-jobs-america-2016/}}. Todavía
+no existe un currículo / definición consensuada, pero por ahora, y por no
+\emph{spoilear} el documento, podemos hablar de ello como ``aquéllo que se hace
+para obtener conocimiento y información de datos.''
 
 
 \subsection{Objetivos}
@@ -37,10 +40,10 @@ Los objetivos principales del proyecto son:
     \item Entender el modelo de datos y consultas de Apache Cassandra.
     \item Utilizar la \emph{API Streaming} de Twitter para abocar twits
       referentes a un hashtag.
-    \item Entender y familiarizarse con el flujo de trabajo del \emph{data scientist}.
+    \item Entender y familiarizarse con el flujo de trabajo del científico de datos.
       \begin{itemize}
-      \item Analizar mediante Python los datos obtenidos, y realizar análisis de
-        sentimiento de los twits obtenidos.
+      \item Analizar mediante Python los datos obtenidos (análisis de
+        sentimiento) de los twits obtenidos.
       \end{itemize}
 \end{itemize}
 
@@ -54,12 +57,11 @@ comparativa en base al modelo relacional. Además, se explorará el concepto de
 disciplinas, desde la programación hasta las matemáticas y la estadística,
 centrada en en la solución de problemas / obtención de conocimiento a partir de información.
 
-La segunda, consistirá en emplear lo aprendido en la primera parte para
+La segunda parte consistirá en utilizar lo aprendido en la primera parte para
 implementar un sistema que aproveche las aptitudes de Cassandra para el
-\emph{big data} y el análisis de datos. A éstos efectos, se utilizará Python y
-un variado conjunto de librerías para explorar los datos recogidos,
-visualizarlos, y intentar predecir el tráfico de red estimado en un punto
-concreto del futuro.
+\emph{big data} y el análisis de datos. Para ello, utilizaremos la API Streaming
+de Twitter para obtener twits y almacenarlos en Apache Cassandra, sobre los
+cuales luego utilizaremos Python para realizar un pequeño análisis de sentimiento.
 
 \subsection{Características técnicas}
 \label{subsec:planificació}
@@ -71,6 +73,7 @@ utilizar durante el proyecto:
     \item \textbf{Documento de la memoria: } \LaTeX
     \item \textbf{SGBD NoSQL: } Apache Cassandra
     \item \textbf{Lenguaje de programación: } Python 
+      \vspace{0.5cm}
     \item \textbf{Librerías: } 
       \begin{itemize}
       \item Datastax Cassandra driver for Python
@@ -80,7 +83,7 @@ utilizar durante el proyecto:
       \item matplotlib
       \item Jupyter Notebook
       \end{itemize}
-    \item \textbf{Presentación: } Reveal.js\\
+    \item \textbf{Presentación: } Reveal.js
 \end{itemize}
 
 \subsection{Planificación del proyecto}
@@ -113,7 +116,7 @@ utilizar durante el proyecto:
 \label{subsubsec:tasklist}
 
 \vspace{1cm}
-\hspace*{-1in}
+\hspace*{-1.2in}
 \begin{ganttchart} [
   hgrid,
   vgrid,
@@ -124,11 +127,11 @@ utilizar durante el proyecto:
 
   \ganttbar{Introducción}{2017-3-7}{2017-3-15}\\
   \ganttlinkedbar{Apache Cassandra}{2017-3-15}{2017-4-2}\\
-  \ganttlinkedbar{Comparativa con RDBMS}{2017-4-2}{2017-4-4}\\ 
+  \ganttlinkedbar{Comparativa}{2017-4-2}{2017-4-4}\\ 
   \ganttlink{elem0}{elem1}
   \ganttlink{elem1}{elem2}
 
-  \ganttgroup{Data science}{2017-3-7}{2017-4-7}\\
+  \ganttgroup{Ciencia de los datos}{2017-3-7}{2017-4-7}\\
   \ganttbar[name=dataIntro]{Introducción}{2017-3-7}{2017-3-15}\\
   \ganttbar[name=flujo]{Flujo de trabajo}{2017-3-15}{2017-4-5}\\
   \ganttlink{dataIntro}{flujo}
@@ -138,20 +141,21 @@ utilizar durante el proyecto:
 \end{ganttchart}
 
 \vspace{1cm}
-\hspace*{-1.2in}
+\hspace*{-1.3in}
+\begin{tikzpicture}[y = 5mm]
 \begin{ganttchart} [
   hgrid,
   vgrid,
   x unit = 4mm,
   time slot format = isodate,
-  ]{2017-4-8}{2017-5-12}
+  bar top shift=-0.1]{2017-4-8}{2017-5-12}
   \gantttitlecalendar{year, month, day}\\
 
   \ganttbar[name=dbDesign]{Diseño base de datos}{2017-4-8}{2017-4-12}\\
 
   \ganttgroup[name=api]{API Twitter}{2017-4-12}{2017-4-25}\\
   \ganttbar[name=twitterIntro]{Introducción}{2017-4-12}{2017-4-16}\\
-  \ganttbar[name=impl]{Implementación del programa}{2017-4-16}{2017-4-25}\\
+  \ganttbar[name=impl]{Implementación prog.}{2017-4-16}{2017-4-25}\\
 
   \ganttlinkedbar[name=analisis]{Análisis de los datos}{2017-4-26}{2017-5-11}\\
 
@@ -162,6 +166,8 @@ utilizar durante el proyecto:
   \ganttmilestone{Entrega implementación}{2017-5-12}
 
 \end{ganttchart}
+
+\end{tikzpicture}
 
 \begin{center}
   \textbf{Nota: } El análisis de datos es un proceso largamente iterativo, la
@@ -175,11 +181,9 @@ utilizar durante el proyecto:
 \subsection{Descripción de los capítulos}
 \label{subsec:chaps}
 
-% TODO: Definir la estructura de capítulos y explicarlos brevemente.
-
 \begin{enumerate}
   \item \textbf{Estado del arte: }
-    \begin{itemize}
+    \begin{enumerate}
       \item \textbf{NoSQL y Apache Cassandra: } En esta sección estudiaremos
         brevemente las bases de datos NoSQL, en concreto Apache Cassandra.
         Trataremos de entenderlas, y identificar aquellas situaciones en las que
@@ -190,13 +194,29 @@ utilizar durante el proyecto:
         exactamente, con qué herramientas se trabaja, y con qué objetivos.
         Haremos énfasis en el flujo de trabajo del científico de los datos, es
         decir, la metodología estándar en cualquier proyecto de éstas características.
+    \end{enumerate}
 
-    \end{itemize}
   \item \textbf{Implementación: }  Ésta parte también la dividiremos en las
     mismas partes que el estado del arte. Como su nombre indica, aquí
     explicaremos aquél codigo que escribamos para tanto implementar la base de
     datos, crear el \emph{dataset} con el que trabajaremos, y el posterior
     análisis del mismo.
   \item \textbf{Conclusiones: } 
+  \item \textbf{Anexo: } En éste capítulo se incluirán guías y descripciones
+    varia como la preparación del entorno de desarrollo, y demás.
 \end{enumerate}
+
+\subsection{Formato de éste documento}
+\label{subsec:format}
+
+En el documento, se utilizarán las siguientes convenciones de formato:
+
+    \begin{TMterminal}{}{}{Bloque de comandos}
+      comandos a ser introducidos por el usuario en un intérprete de comandos
+    \end{TMterminal}
+
+    \begin{TMcode}{Python}{}{Bloque de código}
+      for i in range(1,10):
+          print("Código fuente")
+    \end{TMcode}
 \clearpage
