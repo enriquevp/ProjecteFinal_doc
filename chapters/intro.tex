@@ -38,30 +38,31 @@ Los objetivos principales del proyecto son:
       \item Identificar los usos ideales para Apache Cassandra.
       \end{itemize}
     \item Entender el modelo de datos y consultas de Apache Cassandra.
-    \item Utilizar la \emph{API Streaming} de Twitter para abocar twits
+    \item Utilizar la \emph{API Streaming} de Twitter para almacenar twits
       referentes a un hashtag.
     \item Entender y familiarizarse con el flujo de trabajo del científico de datos.
       \begin{itemize}
-      \item Analizar mediante Python los datos obtenidos (análisis de
-        sentimiento) de los twits obtenidos.
+      \item Realizar análisis de sentimiento de los twits obtenidos mediante Python.
       \end{itemize}
 \end{itemize}
 
 \subsection{Metodología}
 \label{subsec:metodologia}
 
-El proyecto se dividirá en dos partes bien diferenciadas: la primera consistirá
-de un estudio de las bases de datos NoSQL, en concreto Apache Cassandra, y una
-comparativa en base al modelo relacional. Además, se explorará el concepto de
+El proyecto se dividirá en dos partes: la primera consistirá en un estudio de
+las bases de datos NoSQL, concretamente Apache Cassandra, y una
+comparativa con bases de datos relacionales. Además, exploraremos el concepto de
 \emph{ciencia de los datos}, una nueva profesión que combina diferentes
 disciplinas, desde la programación hasta las matemáticas y la estadística,
-centrada en en la solución de problemas / obtención de conocimiento a partir de información.
+centrada en en la solución de problemas / obtención de conocimiento a partir de
+información. 
 
 La segunda parte consistirá en utilizar lo aprendido en la primera parte para
 implementar un sistema que aproveche las aptitudes de Cassandra para el
 \emph{big data} y el análisis de datos. Para ello, utilizaremos la API Streaming
 de Twitter para obtener twits y almacenarlos en Apache Cassandra, sobre los
-cuales luego utilizaremos Python para realizar un pequeño análisis de sentimiento.
+cuales luego utilizaremos Python para realizar análisis de sentimiento sobre los
+twits.
 
 \subsection{Características técnicas}
 \label{subsec:planificació}
@@ -73,7 +74,6 @@ utilizar durante el proyecto:
     \item \textbf{Documento de la memoria: } \LaTeX
     \item \textbf{SGBD NoSQL: } Apache Cassandra
     \item \textbf{Lenguaje de programación: } Python 
-      \vspace{0.5cm}
     \item \textbf{Librerías: } 
       \begin{itemize}
       \item Datastax Cassandra driver for Python
@@ -85,6 +85,9 @@ utilizar durante el proyecto:
       \end{itemize}
     \item \textbf{Presentación: } Reveal.js
 \end{itemize}
+
+\textbf{Nota:} Se irá actualizando ésta lista a la que se van descubriendo
+nuevas herramientas y librerías.
 
 \subsection{Planificación del proyecto}
 \label{subsec:planificació}
@@ -103,19 +106,22 @@ utilizar durante el proyecto:
               & 1.2              & \multicolumn{3}{l|}{Estudiar Apache Cassandra: su modelo de datos, y sus casos de uso ideales} & 1.1         \\ \cline{2-6} 
               & 1.3              & \multicolumn{3}{l|}{Realizar una comparativa con las bases de datos relacionales}              & 1.2         \\ \cline{2-6} 
               & 1.4              & \multicolumn{3}{l|}{Definir el concepto de ciencia de los datos}                               &             \\ \cline{2-6} 
-              & 1.5              & \multicolumn{3}{l|}{Entender la metodologá del científico de datos}                            & 1.4         \\ \hline
+              & 1.5              & \multicolumn{3}{l|}{Entender la metodología del científico de datos}                           & 1.4        \\ \hline
+
 \multicolumn{2}{|l|}{\textbf{2}} & \multicolumn{3}{l|}{\textbf{Implementación del proyecto}}                                      & \textbf{1}  \\ \hline
-              & 2.1              & \multicolumn{3}{l|}{Definición del proyecto}                                                   &             \\ \cline{2-6} 
+              & 2.1              & \multicolumn{3}{l|}{Estudio de algoritmos de clasificado y selección del mismo.}               &             \\ \cline{2-6} 
               & 2.2              & \multicolumn{3}{l|}{Diseño e implementación de la base de datos}                               & 2.1         \\ \cline{2-6} 
-              & 2.3              & \multicolumn{3}{l|}{Implementación del programa para popular la base de datos}                 & 2.2         \\ \cline{2-6} 
-              & 2.4              & \multicolumn{3}{l|}{Análisis de los datos}                                                     & 2.3         \\ \cline{2-6} 
+              & 2.3              & \multicolumn{3}{l|}{Introducción a los algoritmos de clasificado}                              & 2.2         \\ \cline{2-6} 
+              & 2.4              & \multicolumn{3}{l|}{Implementación del programa para popular la base de datos}                 & 2.3         \\ \cline{2-6} 
+              & 2.5              & \multicolumn{3}{l|}{Análisis de los datos}                                                     & 2.4         \\ \hline
+\multicolumn{2}{|l|}{\textbf{2}} & \multicolumn{3}{l|}{\textbf{Redacción de la memoria}}                                          &             \\ \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Diagrama Gantt}
 \label{subsubsec:tasklist}
 
-\vspace{1cm}
+\vspace{0.45cm}
 \hspace*{-1.2in}
 \begin{ganttchart} [
   hgrid,
@@ -133,10 +139,12 @@ utilizar durante el proyecto:
 
   \ganttgroup{Ciencia de los datos}{2017-3-7}{2017-4-7}\\
   \ganttbar[name=dataIntro]{Introducción}{2017-3-7}{2017-3-15}\\
-  \ganttbar[name=flujo]{Flujo de trabajo}{2017-3-15}{2017-4-5}\\
-  \ganttlink{dataIntro}{flujo}
-  
+  \ganttbar[name=flujo]{Flujo de trabajo}{2017-3-15}{2017-3-22}\\
+  \ganttbar[name=class]{Algoritmos de clasificado}{2017-3-22}{2017-4-7}\\
 
+  \ganttlink{dataIntro}{flujo}
+  \ganttlink{flujo}{class}
+  
   \ganttmilestone{Entrega estudio}{2017-4-7}
 \end{ganttchart}
 
@@ -153,20 +161,19 @@ utilizar durante el proyecto:
 
   \ganttbar[name=dbDesign]{Diseño base de datos}{2017-4-8}{2017-4-12}\\
 
-  \ganttgroup[name=api]{API Twitter}{2017-4-12}{2017-4-25}\\
-  \ganttbar[name=twitterIntro]{Introducción}{2017-4-12}{2017-4-16}\\
-  \ganttbar[name=impl]{Implementación prog.}{2017-4-16}{2017-4-25}\\
+  \ganttgroup[name=impl]{Implementación}{2017-4-12}{2017-4-25}\\
+  \ganttbar[name=algo]{Selección de algoritmo}{2017-4-12}{2017-4-16}\\
+  \ganttbar[name=impl2]{Implementación prog.}{2017-4-16}{2017-4-25}\\
+  \ganttbar[name=unitTest]{Pruebas unitarias}{2017-4-18}{2017-4-25}\\
 
-  \ganttlinkedbar[name=analisis]{Análisis de los datos}{2017-4-26}{2017-5-11}\\
+  \ganttlinkedbar[name=analisis]{Análisis de los datos}{2017-4-27}{2017-5-11}\\
 
-  \ganttlink{dbDesign}{api}
-  \ganttlink{twitterIntro}{impl}
-  \ganttlink{api}{analisis}
+  \ganttlink{dbDesign}{impl}
+  \ganttlink{algo}{impl2}
+  \ganttlink{impl}{analisis}
 
   \ganttmilestone{Entrega implementación}{2017-5-12}
-
 \end{ganttchart}
-
 \end{tikzpicture}
 
 \begin{center}
@@ -174,9 +181,21 @@ utilizar durante el proyecto:
   longitud en el diagrama es orientativa.
 \end{center}
 
+\vspace{1cm}
+\hspace*{-1.3in}
+\begin{tikzpicture}[y = 5mm]
+\begin{ganttchart} [
+  hgrid,
+  vgrid,
+  x unit = 4mm,
+  time slot format = isodate,
+  bar top shift=-0.1]{2017-5-12}{2017-6-3}
+  \gantttitlecalendar{year, month, day}\\
+  \ganttbar[name=code]{Documentación del código}{2017-5-12}{2017-6-1}\\
 
-\subsubsection{Planificación horaria}
-\label{subsubsec:hores}
+  \ganttmilestone{Entrega del producto}{2017-6-3}
+\end{ganttchart}
+\end{tikzpicture}
 
 \subsection{Descripción de los capítulos}
 \label{subsec:chaps}
@@ -187,8 +206,7 @@ utilizar durante el proyecto:
       \item \textbf{NoSQL y Apache Cassandra: } En esta sección estudiaremos
         brevemente las bases de datos NoSQL, en concreto Apache Cassandra.
         Trataremos de entenderlas, y identificar aquellas situaciones en las que
-        resultan ideales.
-        uso resulta
+        es ideal su uso.
       \item \textbf{Ciencia de los datos: } Aquí introduciremos y exploraremos el
         concepto de ciencia de los datos. Intentaremos desentrañar a qué se refiere
         exactamente, con qué herramientas se trabaja, y con qué objetivos.
@@ -196,14 +214,14 @@ utilizar durante el proyecto:
         decir, la metodología estándar en cualquier proyecto de éstas características.
     \end{enumerate}
 
-  \item \textbf{Implementación: }  Ésta parte también la dividiremos en las
-    mismas partes que el estado del arte. Como su nombre indica, aquí
-    explicaremos aquél codigo que escribamos para tanto implementar la base de
-    datos, crear el \emph{dataset} con el que trabajaremos, y el posterior
-    análisis del mismo.
-  \item \textbf{Conclusiones: } 
+  \item \textbf{Implementación: } En ésta sección del documento documentaremos
+    la implementación de la base de datos, y el análisis de los twits, razonando
+    cada decisión técnica tomada a lo largo del proceso.
+  \item \textbf{Conclusiones: } A ser rellenada en la última entrega de la
+    memoria, aquí daremos nuestras opiniones y comentarios sobre tanto nuestro
+    aprendizaje de la temática del proyecto, y el proceso de implementación del mismo.
   \item \textbf{Anexo: } En éste capítulo se incluirán guías y descripciones
-    varia como la preparación del entorno de desarrollo, y demás.
+    varia como la preparación del entorno de desarrollo, y otras.
 \end{enumerate}
 
 \subsection{Formato de éste documento}
@@ -215,8 +233,22 @@ En el documento, se utilizarán las siguientes convenciones de formato:
       comandos a ser introducidos por el usuario en un intérprete de comandos
     \end{TMterminal}
 
+    \vspace{0.2cm}
+
     \begin{TMcode}{Python}{}{Bloque de código}
       for i in range(1,10):
           print("Código fuente")
     \end{TMcode}
+
+    \begin{TMbulletin}{normal}{Aviso}
+      Información a tener en cuenta.
+    \end{TMbulletin}
+
+    \begin{TMbulletin}{warning}{$¡$Aviso importante!}
+      Información importante a tener en cuenta.
+    \end{TMbulletin}
+
+    \begin{TMbulletin}{critical}{$¡$Aviso muy importante!}
+      Información muy importante a tener en cuenta.
+    \end{TMbulletin}
 \clearpage
