@@ -148,7 +148,6 @@
         topline=false,
         bottomline=false,
         linewidth=1mm,
-        frametitlefont={\bfseries},
         backgroundcolor=TMbulletinBackground]{TMbulletinBase}
 \newmdenv[default, linewidth=0pt, backgroundcolor=TMbulletinBackground]{TMbulletinContent}
 
@@ -160,19 +159,19 @@
 % we then define some auxilliary commands
 \newcommand{\@TMbulletinTitleContent}[2]
 {
-    \hspace*{2mm}\begin{minipage}{0.75cm}
+    \hspace*{-2mm}\begin{minipage}{0.75cm}
         \includegraphics[width=\linewidth]{#1}
-    \end{minipage}\hspace*{1mm}\begin{minipage}{\textwidth-1.05cm}
-            #2
+    \end{minipage}\hspace*{1mm} \begin{minipage}{\textwidth-1.05cm}
+      \normalfont\Large#2
+
     \end{minipage}
 }
-
 % and finally the main environment
 % takes type (warning/normal/critical) as first argument
 % takes bulletin title as second argument
 \newenvironment{TMbulletin}[2]{
     \begin{TMbulletinBase}[style=#1, frametitle=\@TMbulletinTitleContent{images/#1.png}{#2}]
-    \vspace*{1mm}
+    \vspace*{-0.2cm}
     \begin{TMbulletinContent}
 }
 {
@@ -180,47 +179,10 @@
     \end{TMbulletinBase}
 }
 
-% we now define the mdtable styles
-\newcommand{\tableCaption}{}
-\mdfdefinestyle{TMstyleTable}{
-            skipabove=4mm,
-            skipbelow=0mm,
-            %remove borders
-            rightline=false,
-            topline=false,
-            bottomline=false,
-            linewidth=1mm,
-            %margins
-            innertopmargin=0mm,
-            innerleftmargin=0mm,
-            innerbottommargin=0mm,
-            innerrightmargin=0pt,
-            backgroundcolor=TMcodeBackground,
-            linecolor=TMtableHead,
-}
-\everyrow{\tabucline[.4mm white]{}}
-\tabulinesep=^3mm_2mm
-\taburowcolors[2] 2{TMtableRowOne .. TMtableRowTwo}
-\newenvironment{TMtable}[3]
-{
-    \renewcommand{\tableCaption}{#3}
-    \begin{table}[#2]
-    \begin{mdframed}[style=TMstyleTable]
-    \begin{tabu} to \textwidth{#1}
-        \rowfont{\bfseries\leavevmode\color{white}}
-        \rowcolor{TMtableHead!}
-}
-{
-    \end{tabu}
-    \end{mdframed}
-    \caption{\tableCaption}
-    \end{table}
-}
-
 % theorem styles
 \declaretheoremstyle[
     postheadspace=\newline,
-    headfont=\bfseries\large,
+    headfont=\large,
     mdframed={
             skipabove=4mm,
             skipbelow=0mm,
