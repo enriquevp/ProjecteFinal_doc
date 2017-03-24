@@ -5,14 +5,19 @@
 \usepackage[scaled=0.85]{beramono}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
-\usepackage[backend=biber,style=authoryear,sorting=none]{biblatex}
+\usepackage{url}
+\usepackage[backend=biber,maxcitenames=3,style=authoryear,sorting=none]{biblatex}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \usepackage[toc,section=section]{glossaries}
 \makeglossaries{}
-\newglossaryentry{placeholder} {
-  name=placeholder,
-  description={placeholder}
+
+% GLOSSARY ENTRIES
+\newglossaryentry{hashtag} {
+  name=hashtag,
+  description={texto precedido por una almohadilla, representando una
+    etiqueta que ayuda a encontrar mensajes que hablen del mismo tema}
 }
+
 \usepackage{bibentry}
 \addbibresource{bibliography.bib}
 \usepackage{helvet}
