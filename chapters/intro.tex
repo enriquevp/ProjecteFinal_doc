@@ -4,28 +4,27 @@
 \subsection{Contexto y justificación}
 \label{subsec:context}
 
-Las bases de datos relacionales llevan con nostros desde hace más de 40 años.
+Las bases de datos relacionales llevan con nosotros desde hace más de 40 años.
 Están basadas en el modelo relacional (\cite{Codd:1970:RMD:362384.362685}), en el que los datos se representan en tuplas, agrupadas en
 relaciones, que por lo general, representan entidades. Por tanto, almacenan
 \textbf{datos estructurados}, y resultan ideales en situaciones en las cuales el
 modelo de los datos está rígidamente definido.
 
 De todas maneras, la mayor parte de la información que se genera a
-diario en Internet (pista: mucha), no se conforma a niguna estructura, y
+diario en Internet (pista: mucha), no se ajusta a niguna estructura, y
 por tanto, no puede ser almacenada tal cual en sistemas con esquemas definidos.
 En respuesta a ello, y al rápido aumento en la cantidad de datos a procesar,
 surgieron las \textbf{bases de datos NoSQL}. Al no usar el tradicional modelo
 relacional, éstas resultan mucho más adecuadas para manejar datos sin ningún
-tipo de organización / estructura. 
+tipo de organización o estructura. 
 
 Otro de los conceptos al que va enfocado el proyecto es el de ciencia de los
 datos, posiblemente el último ``no va más'' en el mercado. Hasta ha sido
 clasificado por Glassdoor como el mejor trabajo en América a inicios de 2016
-\footnote{\url{https://www.glassdoor.com/blog/25-jobs-america-2016/}}. Todavía
-no existe un currículo / definición consensuada, pero por ahora, y por no
-\emph{spoilear} el documento, podemos hablar de ello como ``aquéllo que se hace
-para obtener conocimiento y información de datos.''
-
+\footnote{\url{https://www.glassdoor.com/blog/25-jobs-america-2016/}}. Uno de
+los motivos por los cuales decidimos explorar éste concepto en el proyecto es el
+hecho de que aunque lleva ya tiempo establecido, aún sigue sin un currículo
+estandarizado, o una definición concreta a la que acogerse.
 
 \subsection{Objetivos}
 \label{subsec:objectives}
@@ -33,13 +32,13 @@ para obtener conocimiento y información de datos.''
 Los objetivos principales del proyecto son:
 
 \begin{itemize}
-    \item Estudiar y conocer el SGBD NoSQL Apache Cassandra.
+    \item Estudiar y conocer las bases de datos NoSQL, en concreto Apache Cassandra
       \begin{itemize}
-      \item Identificar los usos ideales para Apache Cassandra.
+      \item Identificar los usos ideales para su uso.
       \end{itemize}
-    \item Entender el modelo de datos y consultas de Apache Cassandra.
-    \item Utilizar la \emph{API Streaming} de Twitter para almacenar twits
-      referentes a un hashtag.
+    \item Entender el diseño y modelado de datos en Apache Cassandra.
+    \item Utilizar la \emph{API Streaming} de Twitter para almacenar twits que
+      hagan referencia a un \emph{hashtag}.
     \item Entender y familiarizarse con el flujo de trabajo del científico de datos.
       \begin{itemize}
       \item Realizar análisis de sentimiento de los twits obtenidos mediante Python.
@@ -59,7 +58,7 @@ información.
 
 La segunda parte consistirá en utilizar lo aprendido en la primera parte para
 implementar un sistema que aproveche las aptitudes de Cassandra para el
-\emph{big data} y el análisis de datos. Para ello, utilizaremos la API Streaming
+\emph{big data} y el análisis de datos. A ése fin, utilizaremos la API Streaming
 de Twitter para obtener twits y almacenarlos en Apache Cassandra, sobre los
 cuales luego utilizaremos Python para realizar análisis de sentimiento sobre los
 twits.
@@ -80,18 +79,20 @@ utilizar durante el proyecto:
       \item Tweepy
       \item Pandas
       \item Natural Language Toolkit (NLTK)
-      \item matplotlib
-      \item Jupyter Notebook
       \end{itemize}
     \item \textbf{Presentación: } Reveal.js
+    \item \textbf{Aplicaciones auxiliares: } 
+      \begin{itemize}
+        \item Jupyter Notebook
+      \end{itemize}
 \end{itemize}
 
-\textbf{Nota:} Se irá actualizando ésta lista a la que se van descubriendo
+\textbf{Nota:} Se irá actualizando ésta lista a medida que se van descubriendo
 nuevas herramientas y librerías.
+
 
 \subsection{Planificación del proyecto}
 \label{subsec:planificació}
-
 
 \subsubsection{Lista de tareas}
 \label{subsubsec:tasklist}
@@ -205,23 +206,23 @@ nuevas herramientas y librerías.
     \begin{enumerate}
       \item \textbf{NoSQL y Apache Cassandra: } En esta sección estudiaremos
         brevemente las bases de datos NoSQL, en concreto Apache Cassandra.
-        Trataremos de entenderlas, y identificar aquellas situaciones en las que
-        es ideal su uso.
+        Trataremos de entenderlas, e identificar aquellas situaciones en las que
+        es ideal utilizarlas.
       \item \textbf{Ciencia de los datos: } Aquí introduciremos y exploraremos el
         concepto de ciencia de los datos. Intentaremos desentrañar a qué se refiere
         exactamente, con qué herramientas se trabaja, y con qué objetivos.
         Haremos énfasis en el flujo de trabajo del científico de los datos, es
-        decir, la metodología estándar en cualquier proyecto de éstas características.
+        decir, la metodología estándar en un proyecto de éstas características.
     \end{enumerate}
 
-  \item \textbf{Implementación: } En ésta sección del documento documentaremos
+  \item \textbf{Implementación: } En ésta sección documentaremos
     la implementación de la base de datos, y el análisis de los twits, razonando
     cada decisión técnica tomada a lo largo del proceso.
-  \item \textbf{Conclusiones: } A ser rellenada en la última entrega de la
-    memoria, aquí daremos nuestras opiniones y comentarios sobre tanto nuestro
+  \item \textbf{Conclusiones: } A ser redactada en la última entrega de la
+    memoria, en ésta sección daremos nuestras opiniones sobre nuestro
     aprendizaje de la temática del proyecto, y el proceso de implementación del mismo.
   \item \textbf{Anexo: } En éste capítulo se incluirán guías y descripciones
-    varia como la preparación del entorno de desarrollo, y otras.
+    varias como la preparación del entorno de desarrollo, y otras.
 \end{enumerate}
 
 \subsection{Formato de éste documento}
