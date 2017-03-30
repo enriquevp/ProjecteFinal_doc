@@ -136,12 +136,17 @@ inicial son las siguientes:
 \paragraph{Trabajando con valores faltantes} \mbox{}\\
 
 En caso de que en nuestro dataset nos encontremos con variables para las que
-directamente no exista una observación, hay unas cuantas técnicas que podemos
+directamente no exista una observación, existen varias técnicas que podemos
 utilizar para tratar los registros.
 
-Las dos siguientes, involucran pérdida de información. El problema con éstas es
-que pueden introducir \textbf{imparcialidad estadísticaI}\footnote{Se da cuando
-  el resultado obtenido difiere del verdadero parámetro siendo estimado.}
+Las dos primeras que describiremos, trabajan de forma destructiva, es decir,
+borrando datos: 
+
+\begin{TMbulletin}{critical}{$¡$Aviso muy importante!}
+  Al borrar / ignorar la informacion faltante, éstos métodos pueden
+  introducir \textbf{imparcialidad estadísticaI}\footnote{Se da cuando
+el resultado obtenido difiere del verdadero parámetro siendo estimado.}
+\end{TMbulletin}
 
 \begin{enumerate}
 \item Borrar el registro entero en el qual falte alguna observación.
