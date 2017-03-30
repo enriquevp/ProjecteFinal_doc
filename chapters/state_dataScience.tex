@@ -81,18 +81,88 @@ read\_sas       & Ficheros de SAS                                           \\ \
 read\_clipboard & Contenidos del portapapeles a través de read\_table       \\ \hline
 read\_pickle    & Estructuras de datos guardadas mediante el formato pickle \\ \hline
 \end{tabular}
+\caption{Métodos de Pandas para leer datos}
 \end{table}
 
 Obviamente, existen muchos más formatos en los que nos encontraremos los datos,
 a parte de los que Pandas puede leer. En ese caso, nos tocará recurrir a más
 herramientas mediante las cuales podamos interactuar con el servicio en
 cuestión, para posteriormente transferir los datos a un DataFrame, o cualquier
-otra estructura que deseemos utilizar
+otra estructura que deseemos utilizar.
 
 % TODO: Hablar un poco sobre la minería de datos.
 
 \subsubsection{Limpieza y preparación de los datos}
 \label{subsec:state_dataScience_workflow_1}
+
+Una vez ya hemos importado los datos, y los estamos manipulando con el lenguaje
+de nuestra elección, debemos echarle un vistazo general al dataset, y ver si
+observamos alguna anomalía.
+
+En pandas, la clase DataFrame dispone de algunos métodos bastante interesantes
+para ver rápidamente algunos registros del dataset: 
+
+\vspace{0.5cm}
+
+\begin{TMcode}{Python}{}{Bloque de código}
+accidents_2015 = pd.read_csv("data/ACCIDENTS_GU_BCN_2015.csv", encoding="latin1", delimiter=";")
+
+accidents_2015            # Muestra el dataset en su totalidad
+accidents_2015.head()     # Muestra los 5 primeros registros
+accidents_2015.tail()     # Muestra los 5 últimos registros
+accidents_2015.sample(15) # Muestra 15 registros aleatorios
+accidents_2015.describe() # Muestra diferentes métricas estadísticas sobre el dataset
+accidents_2015.info()     # Muestra información sobre las columnas del dataset
+\end{TMcode}
+
+Por ejemplo, si ejecutamos \texttt{accidents\_2015.head()}, en una libreta de
+Jupyter veremos lo siguiente:
+
+\begin{figure}[ht!]
+  \hspace{-0.7cm}
+  \includegraphics[scale = 0.45]{img/dataframeHead.png}
+  \caption{\label{fig:dataframeHead} Dataframe.head() en Jupyter Notebook}
+\end{figure}
+
+Básicamente, las preguntas que deberíamos tratar de responder con éste análisis
+inicial son las siguientes:
+
+\begin{enumerate}
+\item Existe alguna anomalía en los datos? Falta algún valor?
+\item Observamos algún patrón en los datos?
+\end{enumerate}
+
+
+\paragraph{Trabajando con valores faltantes} \mbox{}\\
+
+En caso de que en nuestro dataset nos encontremos con variables para las que
+directamente no exista una observación, hay unas cuantas técnicas que podemos
+utilizar para tratar los registros.
+
+Las dos siguientes, involucran pérdida de información. El problema con éstas es
+que pueden introducir \textbf{imparcialidad estadísticaI}\footnote{Se da cuando
+  el resultado obtenido difiere del verdadero parámetro siendo estimado.}
+
+\begin{enumerate}
+\item Borrar el registro entero en el qual falte alguna observación.
+\item Ignorar observaciones faltantes, y realizar análisis únicamente sobre
+  aquellas observaciones que sí se encuentren en el dataset.
+\end{enumerate}
+
+La otra manera de tratarlos recibe el nombre de \textbf{imputación}, y no es ni
+más ni menos que la sustitución de los valores nulos. Para ésto, también
+disponemos de varias técnicas:
+
+\begin{enumerate}
+\item Para variables contínuas, podemos sustituir valores nulos por la media
+  aritmética de los valores no nulos.
+\item Para variables categóricas, podemos sustituir valores nulos por la moda de
+  los valores no nulos. El valor que más veces se dé, será el que utilizaremos
+  en la imputación.
+\end{enumerate}
+
+
+
 
 \subsubsection{Análisis explorativo}
 \label{subsec:state_dataScience_workflow_2}
