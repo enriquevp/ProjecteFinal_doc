@@ -12,10 +12,8 @@ clean:
 
 $(FILE).pdf:$(FILE).tex
 	xelatex $(FILE)
-	xelatex $(FILE)
 	makeglossaries $(FILE)
 	biber $(FILE)
-	xelatex $(FILE)
 	xelatex $(FILE)
 	makeglossaries $(FILE)
 	xelatex $(FILE)
