@@ -5,6 +5,7 @@
 \RequirePackage{listings} % for our code listings
 \RequirePackage[usenames, dvipsnames, svgnames, table]{xcolor}
 \RequirePackage{mdframed}
+\RequirePackage{subcaption}
 \RequirePackage{graphicx}
 \RequirePackage{calc}
 \RequirePackage{array}
